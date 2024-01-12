@@ -82,7 +82,8 @@ def create_bot_corpus(words, classes, pattern_word_tags_list, ignore_words):
     stem_words = get_stem_words(words, ignore_words) 
 
     # Remover palabras duplicadas de stem_words
-    pickle.dump(stem_words,open('words.pkl'))
+    pickle.dump(stem_words,open('words.pkl','wb'))
+    pickle.dump(classes,open('classes.pkl','wb'))
     
     # Ordenar las listas stem_words y classes
     stem_words=sorted(list(set(stem_words)))
@@ -98,7 +99,9 @@ def create_bot_corpus(words, classes, pattern_word_tags_list, ignore_words):
 # Texto de entrada ----> como bolsa de palabras
 # Etiquetas -----------> como etiqueta
 
-def bag_of_words_encoding(stem_words, pattern_word_tags_list):
+#esto se empieza a ver desde la clase 138, solo nose porque aparece en este proyecto
+
+'''def bag_of_words_encoding(stem_words, pattern_word_tags_list):
     
     bag = []
     for word_tags in pattern_word_tags_list:
